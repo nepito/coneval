@@ -41,10 +41,8 @@ $(csvExitoEclosion):
 .PHONY: clean cleanLatex tests
 
 clean: cleanLatex
-	rm --force --recursive .ipynb_checkpoints
-	rm --force --recursive data
 	rm --force --recursive reports/pythontex*
-	rm --force src/*.*
+	rm --force coneva*.tar.gz
 
 cleanLatex:
 	rm --force reports/*.aux
