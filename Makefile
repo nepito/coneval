@@ -2,6 +2,11 @@
 # ==============================================================================
 all: 
 
+define runLintr
+	R -e "library(lintr)" \
+      -e "lint('tests/testthat/test_read_gini_data.R', linters = with_defaults(line_length_linter(100)))"
+endef
+
 # II Declaración de las variables
 # ==============================================================================
 csvExitoEclosion = \
@@ -49,6 +54,14 @@ cleanLatex:
 	rm --force reports/*.out
 	rm --force reports/*.pdf
 	rm --force reports/*.pytxcode
+
+install:
+	R CMD build coneval
+	R CMD INSTALL coneval_1.0.tar.gz
+
+lintr:
+	$(runLintr)
+	$(runLintr) | grep -e "\^" && exit 1 || exit 0
 
 tests:
 	R -e "testthat::test_dir('tests/testthat/', report = 'summary', stop_on_failure = TRUE)"
