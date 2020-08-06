@@ -1,6 +1,6 @@
 # I Declaración del _phony_ *all* que enlista todos los objetivos principales
 # ==============================================================================
-all: 
+all: reports/gini_mexico.pdf
 
 define runLintr
 	R -e "library(lintr)" \
