@@ -26,10 +26,7 @@ test_that("resumen_by_entidad has the expected shape", {
   expect_equal(ncol(resumen_by_entidad), 2)
 })
 
-gini_sonora <-  data %>% 
-  dplyr::filter(entidad_federativa == "SONORA") %>% 
-  .$ingreso %>% 
-  ineq::ineq(type="Gini")
+gini_sonora <- coneval::gini_by_state(data, "SONORA")
 
 test_that("gini_sonora has the expected shape", {
   expect_equal(gini_sonora, 0.463, tolerance=1e-3)
