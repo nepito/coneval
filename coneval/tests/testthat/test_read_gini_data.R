@@ -1,4 +1,4 @@
-data <- readr::read_csv("../../data/raw/tabla2_3_basicos_inegi.csv", col_types = "fif")
+data <- readr::read_csv("../../../data/raw/tabla2_3_basicos_inegi.csv", col_types = "fif")
 
 test_that("Data has the expected shape", {
   expect_true("tbl" %in% class(data))
