@@ -38,7 +38,7 @@ $(csvExitoEclosion):
 	descarga_datos $(@F) $(@D)
 # V Regla del resto de los phonies
 # ==============================================================================
-.PHONY: clean cleanLatex tests
+.PHONY: clean cleanLatex install tests
 
 clean: cleanLatex
 	rm --force --recursive reports/pythontex*
