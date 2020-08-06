@@ -62,4 +62,4 @@ lintr:
 	$(runLintr) | grep -e "\^" && exit 1 || exit 0
 
 tests:
-	R -e "testthat::test_dir('tests/testthat/', report = 'summary', stop_on_failure = TRUE)"
+	R -e "testthat::test_dir('coneval/tests/testthat/', report = 'summary', stop_on_failure = TRUE)"
