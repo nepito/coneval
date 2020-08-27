@@ -8,6 +8,11 @@ gini_by_state <- function(data, state){
         ineq::ineq(type="Gini")
 }
 
+
+calculate_gini_all_states <- function(data){
+    gini_all_state <- rep( 0, len=33)
+}
+
 summarize_income_by_decil <- function(data){
     summary_by <- data %>% 
         dplyr::group_by(decil) %>%
