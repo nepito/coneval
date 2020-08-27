@@ -10,6 +10,9 @@ write_csv(ingreso_estado, "reports/ingreso_estado.csv")
 ingreso_decil <- coneval::summarize_income_by_decil(data)
 ingreso_decil$promedio <- round(ingreso_decil$promedio)
 write_csv(ingreso_decil, "reports/ingreso_decil.csv")
+gini_nacional <- coneval::calculate_gini_all_states(data)
+gini_nacional$gini <- round(gini_nacional$gini * 100)
+write_csv(gini_nacional, "reports/gini_nacional.csv")
 
 marcas_eje_y <- pretty(c(min(0), max(data$ingreso)))
 ggplot(data, aes(x = decil, y = ingreso)) + 
