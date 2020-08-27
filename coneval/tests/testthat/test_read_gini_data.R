@@ -36,4 +36,7 @@ test_that("calculate gini's index for all states", {
   nrow_expected <- 33
   nrow_obtained <- nrow(gini_all_state)
   expect_equal(nrow_expected, nrow_obtained)
+  ncol_expected <- 2
+  ncol_obtained <- ncol(gini_all_state)
+  expect_equal(ncol_expected, ncol_obtained)
 })
