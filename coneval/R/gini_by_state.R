@@ -10,7 +10,7 @@ gini_by_state <- function(data, state){
 
 
 calculate_gini_all_states <- function(data){
-    gini_all_state <- tibble::tibble(rep( 0, len=33))
+    gini_all_state <- tibble::tibble("a" = rep( 0, len=33), "b" = rep( 0, len=33))
 }
 
 summarize_income_by_decil <- function(data){
