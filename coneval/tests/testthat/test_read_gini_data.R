@@ -39,4 +39,7 @@ test_that("calculate gini's index for all states", {
   ncol_expected <- 2
   ncol_obtained <- ncol(gini_all_state)
   expect_equal(ncol_expected, ncol_obtained)
+  levels_expected <- levels(data$entidad_federativa)
+  levels_obtained <- levels(gini_all_state$entidad_federativa)
+  expect_equal(levels_expected, levels_obtained)
 })
