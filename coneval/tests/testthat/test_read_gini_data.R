@@ -33,7 +33,7 @@ test_that("gini_sonora has the expected shape", {
 
 test_that("calculate gini's index for all states", {
   gini_all_state <- coneval::calculate_gini_all_states(data)
-  length_expected <- 33
-  length_obtained <- length(gini_all_state)
-  expect_equal(length_expected, length_obtained)
+  nrow_expected <- 33
+  nrow_obtained <- nrow(gini_all_state)
+  expect_equal(nrow_expected, nrow_obtained)
 })
