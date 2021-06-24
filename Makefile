@@ -9,8 +9,6 @@ endef
 
 # II Declaración de las variables
 # ==============================================================================
-csvExitoEclosion = \
-	data/raw/exito_eclosion_masa_vuelo_pollos_petrel_negro_san_benito_2017.csv
 
 # III Reglas para construir los objetivos principales
 # ==============================================================================
