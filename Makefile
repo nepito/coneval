@@ -21,9 +21,9 @@ reports/gini_mexico.pdf: reports/gini_mexico.tex
 
 # IV Reglas para construir las dependencias de los objetivos principales
 # ==============================================================================
-reports/gini_nacional.csv: src/aed_fledging_mass.R
+reports/gini_nacional.csv: scr/resumen_inegi.R
 	mkdir --parents $(@D)
-	Rscript -e "source('src/aed_fledging_mass.R')"
+	Rscript -e "source('scr/resumen_inegi.R')"
 # V Regla del resto de los phonies
 # ==============================================================================
 .PHONY: clean cleanLatex install tests
