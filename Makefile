@@ -23,19 +23,9 @@ reports/gini_mexico.pdf: reports/gini_mexico.tex
 
 # IV Reglas para construir las dependencias de los objetivos principales
 # ==============================================================================
-src/Fledging_mass.R: src/notebooks/Fledging_mass.ipynb
-	jupytext --output $@ $<
-
-src/Fledging_mass.ipynb: src/Fledging_mass.R
-	jupytext --output $@ $<
-
-reports/Fledging_mass.md: src/notebooks/Fledging_mass.ipynb
+reports/gini_nacional.csv: src/aed_fledging_mass.R
 	mkdir --parents $(@D)
-	jupytext --output $@ $<
-
-$(csvExitoEclosion):
-	mkdir --parents $(@D)
-	descarga_datos $(@F) $(@D)
+	Rscript -e "source('src/aed_fledging_mass.R')"
 # V Regla del resto de los phonies
 # ==============================================================================
 .PHONY: clean cleanLatex install tests
