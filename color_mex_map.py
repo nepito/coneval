@@ -12,10 +12,15 @@ mex = gpd.read_file("mexican-states.shp") # Archivo shape
 mex["name"] = mex["name"].str.upper() # Escribiendo en mayusculas todos los estados, para que coincida con el csv del nepo.
 mex = mex.sort_values("name") # Acomodando los estados en orden alfabetico y por tanto cambiando el acomodo de todo el dataframe
 
-variable_color = np.random.uniform(1, 10, 32) # array con 32 valores que corresponden a los edos.
+#variable_color = np.random.uniform(1, 10, 32) # array con 32 valores que corresponden a los edos.
+
+archivo = pd.read_csv("decil.csv") # Abrir archivo.csv que rolo el nepo.
+gini_decil = archivo.loc[((archivo["decil"] == "I ") & (archivo["entidad_federativa"] != "NACIONAL"))] #Escoger sólo decil I sin incluir NACIONAL
+gini_decil.index = np.arange(0, 32)  # Reescribir los indices a la brava para poder incluirlo en el dataframe mex
+mex["ingreso"] = gini_decil["ingreso"] # Incluyendo los valores de ingreso al dataframe con el shapefile
 fig, ax = plt.subplots(1, 1)
 mex["Indice inventado"] = variable_color
 
-mex.plot(column = "Indice inventado", cmap = "OrRd", ax = ax, legend = True,
-         legend_kwds={'label': "Indice inventado", 'orientation': "vertical"})
+mex.plot(column = "Indice inventado", cmap = "OrRd", ax = ax, legend = True,mex["ingreso"] = gini_decil["ingreso"] 
+         legend_kwds={'label': "Coef. Gini", 'orientation': "vertical"})
 plt.show()
