@@ -19,8 +19,8 @@ gini_decil = archivo.loc[((archivo["decil"] == "I ") & (archivo["entidad_federat
 gini_decil.index = np.arange(0, 32)  # Reescribir los indices a la brava para poder incluirlo en el dataframe mex
 mex["ingreso"] = gini_decil["ingreso"] # Incluyendo los valores de ingreso al dataframe con el shapefile
 fig, ax = plt.subplots(1, 1)
-mex["Indice inventado"] = variable_color
+#mex["Indice inventado"] = variable_color
 
-mex.plot(column = "Indice inventado", cmap = "OrRd", ax = ax, legend = True,mex["ingreso"] = gini_decil["ingreso"] 
+mex.plot(column = "ingreso", cmap = "OrRd", ax = ax, legend = True,
          legend_kwds={'label': "Coef. Gini", 'orientation': "vertical"})
 plt.show()
