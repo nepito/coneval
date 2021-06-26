@@ -1,4 +1,4 @@
-FROM islasgeci/jupyter:5869
+FROM islasgeci/base:feef
 COPY . /workdir
 WORKDIR /workdir
 RUN R -e "install.packages(c('covr', 'devtools', 'ineq', 'lintr', 'testthat', 'tidyverse'), dependencies=TRUE, repos='http://cran.rstudio.com/')"
