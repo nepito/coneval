@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-mex = gpd.read_file("mexican-states.shp") # Archivo shape
+mex = gpd.read_file("data/shapefile/mexican-states.shp") # Archivo shape
 mex["name"] = mex["name"].str.upper() # Escribiendo en mayusculas todos los estados, para que coincida con el csv del nepo.
 mex = mex.sort_values("name") # Acomodando los estados en orden alfabetico y por tanto cambiando el acomodo de todo el dataframe
 
