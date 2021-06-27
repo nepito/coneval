@@ -9,8 +9,6 @@ endef
 
 # II Declaración de las variables
 # ==============================================================================
-csvExitoEclosion = \
-	data/raw/exito_eclosion_masa_vuelo_pollos_petrel_negro_san_benito_2017.csv
 
 # III Reglas para construir los objetivos principales
 # ==============================================================================
@@ -23,19 +21,9 @@ reports/gini_mexico.pdf: reports/gini_mexico.tex
 
 # IV Reglas para construir las dependencias de los objetivos principales
 # ==============================================================================
-src/Fledging_mass.R: src/notebooks/Fledging_mass.ipynb
-	jupytext --output $@ $<
-
-src/Fledging_mass.ipynb: src/Fledging_mass.R
-	jupytext --output $@ $<
-
-reports/Fledging_mass.md: src/notebooks/Fledging_mass.ipynb
+reports/gini_nacional.csv: scr/resumen_inegi.R
 	mkdir --parents $(@D)
-	jupytext --output $@ $<
-
-$(csvExitoEclosion):
-	mkdir --parents $(@D)
-	descarga_datos $(@F) $(@D)
+	Rscript -e "source('scr/resumen_inegi.R')"
 # V Regla del resto de los phonies
 # ==============================================================================
 .PHONY: clean cleanLatex install tests

@@ -29,3 +29,17 @@ test_that("gini_sonora has the expected shape", {
   obtained_gini <- coneval::gini_by_state(data, "SONORA")
   expect_equal(obtained_gini, expected_gini, tolerance=1e-3)
 })
+
+
+test_that("calculate gini's index for all states", {
+  gini_all_state <- coneval::calculate_gini_all_states(data)
+  nrow_expected <- 33
+  nrow_obtained <- nrow(gini_all_state)
+  expect_equal(nrow_expected, nrow_obtained)
+  ncol_expected <- 2
+  ncol_obtained <- ncol(gini_all_state)
+  expect_equal(ncol_expected, ncol_obtained)
+  levels_expected <- levels(data$entidad_federativa)
+  levels_obtained <- levels(gini_all_state$entidad_federativa)
+  expect_equal(levels_expected, levels_obtained)
+})

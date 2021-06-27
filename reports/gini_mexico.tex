@@ -6,6 +6,7 @@
 \usepackage{authblk}
 \usepackage{cprotect}
 \usepackage{floatrow}
+\floatsetup[table]{capposition=top}
 \usepackage[caption=false]{subfig}
 \usepackage{booktabs}
 \usepackage{hyperref}
@@ -14,6 +15,7 @@
 \usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage{siunitx}
 \usepackage[square,sort,comma,numbers]{natbib}
+\usepackage[tableposition=top]{caption}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{pythontex}
 
@@ -43,7 +45,7 @@ ingresos) y donde el valor 1 se corresponde con la perfecta desigualdad (una per
 ingresos y los demás ninguno). El índice de Gini es el coeficiente de Gini expresado en referencia a
 100 como máximo, en vez de 1, y es igual al coeficiente de Gini multiplicado por 100. Una variación
 de dos centésimas del coeficiente de Gini (o dos unidades del índice) equivale a una distribución de
-un 7% de riqueza del sector más pobre de la población (por debajo de la mediana) al más rico (por
+un 7\% de riqueza del sector más pobre de la población (por debajo de la mediana) al más rico (por
 encima de la mediana).
 
 Aunque el coeficiente de Gini se utiliza sobre todo para medir la desigualdad en los ingresos,
@@ -51,11 +53,36 @@ también puede utilizarse para medir la desigualdad en la riqueza. Este uso requ
 disponga de una riqueza neta negativa.\cite{carpenter2000}
 
 \section*{Metodología}
+\begin{table}[H]
+\centering
+\caption{Ingreso promedio nacional por decil (?`para qué año?}
+\label{table:diferenciasTasas}
+    \csvautobooktabular[respect all]{ingreso_decil.csv}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Ingreso promedio por entidad federativa (¿para cuál año?)}
+\label{table:diferenciasTasas}
+    \csvautobooktabular[respect all]{ingreso_estado.csv}
+\end{table}
+
+\begin{figure}[H]
+    \includegraphics[scale=0.5]{boxplot_deciles.png}
+    \caption{Diagrámas de cajas y bigotes para los ingresos nacionales para decil.}
+    \label{fig:serieTasasVocalizaciones}
+\end{figure}
 
 \subsection*{Análisis}
 
 
 \section*{Resultados}
+\begin{table}[H]
+\caption{Índice de Gini por entidad federativa.}
+\centering
+\label{table:diferenciasTasas}
+    \csvautobooktabular[respect all]{gini_nacional.csv}
+\end{table}
 
 \bibliography{../references/tamano_poblacional.bib} 
 \bibliographystyle{apalike}
